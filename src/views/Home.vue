@@ -1,5 +1,6 @@
 <template>
   <div>
+    111111111111111111111111111111111
     <el-carousel indicator-position="outside">
       <el-carousel-item v-for="(item,idx) in data" :key="idx">
         <img :src="item.src" alt="" width="100%">
