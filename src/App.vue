@@ -1,32 +1,70 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+  <div>
+    <el-menu
+      default-active="home"
+      class="el-menu-demo"
+      mode="horizontal"
+      background-color="#545c64"
+      text-color="#fff"
+      active-text-color="#ffd04b"
+      :router="true"
+      >
+      <el-menu-item v-for="item in items" :key="item.path" :index="item.path">{{item.name}}</el-menu-item>
+      
+    </el-menu>
+
+    <div id="aaa">
+      <div>
+        <div>
+          <router-view class=""></router-view>
+        </div>
+      </div>
     </div>
-    <router-view/>
+
+    <router-link to="/about">aaa</router-link>
+    <router-link to="/">bbb</router-link>
+
+    
+
+    
   </div>
 </template>
+<script>
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+import Vue from 'vue'
 
-<style lang="less">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+Vue.use(ElementUI);
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+export default {
+  data(){
+    return {
+      items:[
+        {
+          name:"主页",
+          path:"home"
+        },
+        {
+          name:"列表",
+          path:"list"
+        },
+        {
+          name:"详情",
+          path:"detail"
+        },
+        {
+          name:"用户",
+          path:"user"
+        }
+      ]
     }
+  },
+  methods:{
+    
   }
 }
+</script>
+
+<style lang="less">
+
 </style>
